@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <input type="text" v-model="numA">
+    <input type="text" v-model="numB">
+    <!-- 直接用计算属性的方法 -->
+    结果为： {{sum}}
+  </div>
+  <script src="../vue.js"></script>
+  <script>
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        // 定义数据
+        numA: '',
+        numB: '',
+      },
+      methods: {
+
+      },
+      // 计算属性
+      computed: {
+        // 方法
+        sum: function() {
+          // 必须return
+          return parseInt(this.numA) + parseInt(this.numB)
+        }
+      }
+    })
+  </script>
+</body>
+</html>

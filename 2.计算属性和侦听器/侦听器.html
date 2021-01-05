@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <input type="text" v-model="username">
+  </div>
+  <script src="../vue.js"></script>
+  <script>
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        username: 'admin'
+      },
+      // 侦听器
+      watch: {
+        // 要监听的数据
+        username: function(val) {
+          // 只要发生了变化，就会触发下面的业务逻辑
+          console.log(val)
+        }
+      }
+    })
+  </script>
+</body>
+</html>
