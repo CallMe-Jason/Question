@@ -18,10 +18,33 @@
       },
       // 侦听器
       watch: {
-        // 要监听的数据
+        // 1.要监听的数据
         username: function(val) {
           // 只要发生了变化，就会触发下面的业务逻辑
           console.log(val)
+        },
+        // 2.当监听的数据发生变化时触发方法
+        username: 'handler1',
+        // 3.深度监听开启
+        // username: {
+          // 此时必须为handler
+          // handler: function () {
+            // alert('触发了深度监听')
+          // },
+          // deep: true
+        // },
+        // 4.开启立即调用
+        username: {
+          handler: function () {
+            alert('触发了立即调用')
+          },
+          // 开启立即调用
+          immediate: true
+        }
+      },
+      methods: {
+        handler1 () {
+          alert('触发了侦听器的函数')
         }
       }
     })
