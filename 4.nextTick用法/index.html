@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <button @click="addBtn">增加三项</button>
+
+    <ul ref="listRef">
+      <li v-for="(item, index) in list" :key="index">{{item}}</li>
+    </ul>
+  </div>
+  <script src="../vue.js"></script>
+  <script>
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        list: ['列表项1', '列表项2', '列表项3']
+      },
+      methods: {
+        addBtn () {
+          this.list.push('列表项N')
+          this.list.push('列表项N')
+          this.list.push('列表项N')
+
+          // 获取ul的ref来获取li的个数
+          const listRef = this.$refs.listRef
+          // 打印u子节点的个数
+          console.log(listRef.childNodes.length, '未使用nextTick');
+
+          this.$nextTick( () => {
+          const listRef = this.$refs.listRef
+          console.log(listRef.childNodes.length, '使用nextTick');
+          })
+        }
+      }
+    })
+  </script>
+</body>
+</html>
