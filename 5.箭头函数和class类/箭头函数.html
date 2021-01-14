@@ -38,6 +38,15 @@
       console.log(this)
     }
     fn6()
+    // 用call更改this指向
+    var Person = {
+      name: 'zs',
+      age: 18
+    }
+    function fnA () {
+      console.log(this.name, this.age);
+    }
+    fnA.call(Person)
   </script>
 </body>
 </html>
