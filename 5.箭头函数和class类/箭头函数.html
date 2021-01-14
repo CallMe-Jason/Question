@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 无参数 
+    const fn1 = () => {
+      return alert('箭头函数')
+    }
+    fn1()
+    // 有一个参数可省略()
+    const fn2 = item => {
+      return alert(item)
+    }
+    fn2('省略参数')
+    // 两个参数必须写()
+    const fn3 = (item, index) => {
+      return console.log(item, index)
+    }
+    fn3('不省略参数', '第二个参数')
+    // 函数体只有一句话时，可以省略{}和return，否则必须写return
+    const fn4 = () => alert('省略了return和{}')
+    fn4()
+    // 箭头函数中不绑定this,它的this指向它所处的环境，即所处在哪一个构造函数生成的实例对象中
+    function fn () {
+      const fn5 = () => {
+        console.log(this)
+      }
+      fn5()
+    }
+    fn()
+    // 普通函数的this是指向window的
+    function fn6() {
+      console.log(this)
+    }
+    fn6()
+  </script>
+</body>
+</html>
