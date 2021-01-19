@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    class Father {
+      constructor (uname) {
+        this.uname = uname
+      }
+      money() {
+        console.log('儿子继承父类的方法')
+      }
+      say() {
+        console.log('我是爸爸')
+      }
+      fName() {
+        console.log(this.uname)
+      }
+    }
+    const father = new Father('BaBa')
+    console.log(father.uname) // BaBa
+    father.say() // 我是爸爸
+
+    class Son extends Father { // extends继承了父类的方法
+      constructor(uname) {
+        super(uname)
+      }
+      say() {
+        console.log('我是儿子')
+        super.say() // 我是爸爸
+      }
+    }
+    const son = new Son('ErZi')
+    son.say() // 我是儿子
+    son.money() // 儿子继承父类的方法
+    son.fName() // ErZi
+  </script>
+</body>
+</html>
